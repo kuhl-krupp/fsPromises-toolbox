@@ -1,0 +1,186 @@
+import { IFileInfo } from '@/interfaces/IFileInfo';
+import { hashingAlgorithms } from '@/types/hashingAlgorithms';
+import crypto from 'crypto';
+import oldFs, { promises as fs, Stats } from 'fs';
+import path, { sep as separator } from 'path';
+
+/**
+ * Promised check if a path exists
+ *
+ * @export
+ * @param {string} destinationPath Destination path
+ * @returns Promise<boolean>
+ */
+export async function exists(destinationPath: string): Promise<boolean> {
+    try {
+        await fs.stat(destinationPath);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+/**
+ * Reads all files in given directory and returns an IFileInfo[]
+ *
+ * @export
+ * @param {string} directory Path where files are located
+ * @returns {(Promise<IFileInfo[]>)}
+ */
+export async function readAllFiles(directory: string): Promise<IFileInfo[]> {
+    const files: IFileInfo[] = [];
+
+    /** When directory doesn't exists return false */
+    if (!(await exists(directory))) {
+        return files;
+    }
+
+    /** Read all files */
+    const src = await fs.readdir(directory);
+
+    /** Join IFileInfo */
+    for (const filename of src) {
+        const pathBuilder = path.resolve(directory).split(separator);
+        const dirName = pathBuilder.pop() || '';
+        const rootDirectory = pathBuilder.join(separator);
+        //
+        const splitName = filename.split('.');
+        const extension = splitName.length !== 1 ? splitName.pop() : undefined;
+
+        const statPath = path.join(rootDirectory, dirName, filename);
+        const fileStats = await getFileStats(statPath);
+
+        if (!fileStats) {
+            throw new Error(`File or Directory at path ${statPath} does not exist`);
+        }
+
+        files.push({
+            rootDirectory,
+            relativeDirectory: dirName,
+            fullPath: statPath,
+            name: splitName.join('.'),
+            fullName: filename,
+            extension: extension ? extension : undefined,
+            size: fileStats ? fileStats.size : undefined,
+            isFile: fileStats ? fileStats.isFile() : undefined,
+            isDirectory: fileStats ? fileStats.isDirectory() : undefined,
+            accessedTime: fileStats ? fileStats.atimeMs : undefined,
+            modifiedTime: fileStats ? fileStats.mtimeMs : undefined,
+            createdTime: fileStats ? fileStats.birthtimeMs : undefined
+        });
+    }
+
+    /** Returning IFileInfo[] */
+    return files;
+}
+
+/**
+ * Get File Stats without promise rejections.
+ * It will return undefined when the file doesn't exist
+ *
+ * @export
+ * @param {string} filePath
+ * @returns {(Promise<Stats | undefined>)}
+ */
+export async function getFileStats(filePath: string): Promise<Stats | undefined> {
+    try {
+        return await fs.stat(filePath);
+    } catch (e) {
+        return undefined;
+    }
+}
+
+// export async function isDirectoryEmpty(dirPath: string): Promise<boolean | undefined> {
+//     try {
+//         console.log(await fs.readdir(dirPath));
+//         return undefined;
+//         // return await fs.stat(filePath);
+//     } catch (e) {
+//         return undefined;
+//     }
+// }
+
+// export async function removeDirectoryDeep(dirPath: string, untilDirectory?: string): Promise<void> {
+//     /** Split path */
+//     let split = dirPath.split(separator);
+//     while (split.length) {
+//         /** Remove all files inside */
+//         if (await isFile(dirPath)) {
+//             console.log('IS FILE');
+//             await fs.unlink(dirPath);
+//         }
+
+//         /** Remove actual directory */
+//         if (await isDiretory(dirPath)) {
+//             const entries = await readAllFiles(dirPath);
+//             for (const entry of entries) {
+//                 if (entry.isFile) {
+//                     await fs.unlink(entry.fullPath);
+//                 }
+//             }
+//             await fs.rmdir(dirPath);
+//         }
+
+//         /** Split string and remove last element */
+//         split = dirPath.split(separator);
+//         split.pop();
+//         dirPath = split.join(separator);
+
+//         /** Break at untilDirectory */
+//         if (untilDirectory && split[split.length - 1] === untilDirectory) {
+//             break;
+//         }
+//     }
+// }
+
+export async function isDirectory(destinationPath: string): Promise<boolean | undefined> {
+    if (await exists(destinationPath)) {
+        const stat = await fs.lstat(destinationPath);
+        return stat.isDirectory();
+    }
+    return undefined;
+}
+
+export async function isFile(destinationPath: string): Promise<boolean | undefined> {
+    if (await exists(destinationPath)) {
+        const stat = await fs.lstat(destinationPath);
+        return stat.isFile();
+    }
+    return undefined;
+}
+
+/**
+ * Creates a file checksum of given filePath with given hashingAlgorithm
+ *
+ * @export
+ * @param {string} filePath Path of file
+ * @param {HashingMethod} hashingMethod Method that the file will be hashed with
+ * @returns
+ */
+export function hashFileFromPath(
+    filePath: string,
+    hashingAlgorithm: hashingAlgorithms = 'sha1'
+): Promise<string> {
+    return new Promise((resolve, reject) => {
+        const hash = crypto.createHash(hashingAlgorithm);
+        const stream = oldFs.createReadStream(filePath);
+        stream.on('error', (err) => reject(err));
+        stream.on('data', (chunk) => hash.update(chunk));
+        stream.on('end', () => resolve(hash.digest('hex')));
+    });
+}
+
+/**
+ * Creates a checksum of given string with any hashingAlgorithm
+ *
+ * @export
+ * @param {string} data String to hash
+ * @param {HashingMethod} hashingMethod Method that the file will be hashed with
+ * @returns
+ */
+export function hashFileFromString(
+    data: string,
+    hashingAlgorithm: hashingAlgorithms = 'sha1'
+): string {
+    return crypto.createHash(hashingAlgorithm).update(data).digest('hex');
+}

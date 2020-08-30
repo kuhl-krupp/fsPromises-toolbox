@@ -1,0 +1,55 @@
+{
+    "name": "open-icecat",
+    "description": "Icecat API - Find product description with EAN, UPC or GTIN-13 with full typescript support",
+    "author": "Tjark Kühl",
+    "license": "MIT",
+    "version": "1.2.2",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Tjark-Kuehl/open-icecat/"
+    },
+    "bugs": {
+        "url": "https://github.com/Tjark-Kuehl/open-icecat/issues"
+    },
+    "keywords": [
+        "icecat",
+        "typescript",
+        "ean",
+        "api",
+        "upc",
+        "product",
+        "information",
+        "javascript"
+    ],
+    "scripts": {
+        "test": "jest",
+        "testwatch": "jest --watch",
+        "build": "rollup -c",
+        "watch": "rollup -cw",
+        "prepublish": "yarn build",
+        "lint": "tslint --fix ./src/**/*.ts{,x}",
+        "update": "yarn upgrade --latest"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.8.7",
+        "@babel/preset-typescript": "^7.8.3",
+        "@types/jest": "^25.1.4",
+        "@types/node": "^13.13.2",
+        "jest": "^25.1.0",
+        "prettier": "^1.19.1",
+        "rollup": "^2.1.0",
+        "rollup-plugin-clear": "^2.0.7",
+        "rollup-plugin-filesize": "^6.2.1",
+        "rollup-plugin-terser": "^5.3.0",
+        "rollup-plugin-typescript2": "^0.26.0",
+        "tslint": "^6.0.0",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-microsoft-contrib": "^6.2.0",
+        "tslint-plugin-prettier": "^2.1.0",
+        "typescript": "^3.8.3"
+    },
+    "dependencies": {
+        "ky": "^0.19.0",
+        "ky-universal": "^0.5.0"
+    }
+}
