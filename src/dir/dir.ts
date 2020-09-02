@@ -1,5 +1,5 @@
 import fs, { promises as pfs } from 'fs';
-import { exists } from '../../src';
+import { exists } from "..";
 
 // checkDirExist
 /**
@@ -10,7 +10,7 @@ import { exists } from '../../src';
  * @param {boolean} [create=false]
  * @returns {Promise<boolean>}
  */
-export async function existsDir(dir: string, create: boolean = false): Promise<boolean> {
+export async function existsDir(dir: string, create = false): Promise<boolean> {
     if (!(await exists(dir))) {
         if (create) {
             await pfs.mkdir(dir, { recursive: true });

@@ -1,7 +1,7 @@
-import fs, { promises as pfs } from 'fs';
+import { promises as fsPromises } from 'fs';
+import { exists } from 'src';
 import { existsDir } from '../dir/dir';
 import { ISaveFileOptions } from './interfaces/ISaveFileOptions';
-import { exists } from 'src';
 
 // read
 // export async function JSONFromFile(filepath: string): Promise<JSON> {
@@ -58,7 +58,7 @@ export async function writeFile(
             return false;
         }
     }
-    await pfs.writeFile(`${sfilepath}${filename}`, wData, {
+    await fsPromises.writeFile(`${sfilepath}${filename}`, wData, {
         encoding: options?.encoding,
         mode: options?.mode,
         flag: options?.flag

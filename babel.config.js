@@ -1,3 +1,7 @@
 module.exports = {
-    presets: [['@babel/preset-env', { targets: { node: 'current' } }], '@babel/preset-typescript']
+    presets: [
+        // Compile to environments listed in .browserslistrc
+        '@babel/env',
+        '@babel/typescript'
+    ]
 };
