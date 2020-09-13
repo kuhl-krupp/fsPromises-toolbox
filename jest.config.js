@@ -1,12 +1,14 @@
+require('dotenv').config({ path: './.env.test' });
+const path = require('path');
+
+// Model TEST_DIR_PATH to current dir plus the test directory
+process.env.TEST_DIR_PATH = path.resolve(path.join(__dirname, process.env.TEST_DIR_PATH));
+
 module.exports = {
+    collectCoverageFrom: ['src/**/*.{js,ts}', '!src/**/*.d.ts'],
+    roots: ['<rootDir>/src/'],
     collectCoverage: true,
     verbose: true,
-    transformIgnorePatterns: ['node_modules/?!(ky)']
+    testEnvironment: 'node',
+    testPathIgnorePatterns: ['/dist/', '/test/', '/node_modules/']
 };
-
-// module.exports = {
-//     collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts"],
-//     roots: ["<rootDir>/src/"],
-//     testEnvironment: "node",
-//     testPathIgnorePatterns: ["/dist/", "/examples/", "/node_modules/"],
-//   }

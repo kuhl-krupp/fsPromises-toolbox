@@ -1,37 +1,40 @@
 {
-  "compilerOptions": {
-    /* Basic Options */
-    "target": "esnext",
-    "module": "esnext",
-    "outDir": "./dist",
-    "declarationDir": "./dist",
-    "removeComments": true,
-    "importHelpers": true,
-    "downlevelIteration": true,
-    "declaration": true,
-    "sourceMap": true,
+    "compilerOptions": {
+        /* Basic Options */
+        "target": "esnext",
+        "module": "esnext",
+        "outDir": "./dist",
+        "declarationDir": "./dist",
+        "removeComments": true,
+        "importHelpers": true,
+        "downlevelIteration": true,
+        "declaration": true,
+        "sourceMap": true,
 
-    /* Strict Type-Checking Options */
-    "strict": true,
-    "resolveJsonModule": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
+        /* Strict Type-Checking Options */
+        "strict": true,
+        "resolveJsonModule": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
 
-    /* Additional Checks */
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+        /* Additional Checks */
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
 
-    /* Module Resolution Options */
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
-  },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules", "dist"]
+        /* Module Resolution Options */
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["./src/**/*"],
+    "exclude": ["node_modules", "dist"]
 }

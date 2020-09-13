@@ -7,8 +7,8 @@ module.exports = {
     },
     parser: '@typescript-eslint/parser',
     parserOptions: {
-        project: './tsconfig.json',
         ecmaVersion: 2020,
+        project: './tsconfig.json',
         sourceType: 'module'
     },
     plugins: ['@typescript-eslint', 'eslint-comments', 'jest', 'promise', 'unicorn'],

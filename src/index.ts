@@ -1,11 +1,12 @@
-import fs, { promises as pfs } from 'fs';
+// Dir
+import { isDir } from '@/dir/is';
 
-// checkFileExist
-export async function exists(filePath: string): Promise<boolean> {
-    try {
-        await pfs.access(filePath, fs.constants.F_OK);
-        return true;
-    } catch {
-        return false;
-    }
-}
+// File
+import { isFile } from '@/file/is';
+
+export {
+    // Dir
+    isDir,
+    // File
+    isFile
+};
