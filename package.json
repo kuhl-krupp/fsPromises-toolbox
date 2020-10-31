@@ -3,11 +3,16 @@
     "description": "",
     "author": "Tjark Kühl",
     "license": "MIT",
-    "version": "0.0.2",
+    "version": "0.1.1",
     "keywords": [],
     "engines": {
-        "node": ">=10.0.0"
+        "node": ">=13.0.0"
     },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "test": "jest",
         "test:coverage": "jest -- --coverage",
