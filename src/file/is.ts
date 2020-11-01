@@ -6,7 +6,7 @@ import { exists } from '../_helpers/exists';
  *
  * @export
  * @param {string} path FilePath
- * @returns {Promise<boolean>} true: if FilePath is a file, false: if FilePath doesn't exist or it isn't a file
+ * @returns {Promise<boolean>} true: if path is a file, false: if path doesn't exist or it isn't a file
  */
 export async function isFile(path: string): Promise<boolean> {
     if (await exists(path)) {

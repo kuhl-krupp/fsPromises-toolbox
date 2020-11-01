@@ -6,7 +6,7 @@ import { exists } from '../_helpers/exists';
  *
  * @export
  * @param {string} path DirectoryPath
- * @returns {Promise<boolean>} true: if DirectoryPath is a directory, false: if DirectoryPath doesn't exist or it isn't a directory
+ * @returns {Promise<boolean>} true: if path is a directory, false: if path doesn't exist or it isn't a directory
  */
 export async function isDir(path: string): Promise<boolean> {
     if (await exists(path)) {
