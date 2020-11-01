@@ -7,7 +7,8 @@ import pkg from './package.json';
 
 const outputDir = 'dist';
 const globals = {
-    fs: 'fs'
+    fs: 'fs',
+    path: 'path'
 };
 
 /* eslint-disable import/no-default-export */
