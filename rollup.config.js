@@ -1,8 +1,8 @@
 import typescriptPlugin from 'rollup-plugin-typescript2';
 import clearPlugin from 'rollup-plugin-clear';
 import filesizePlugin from 'rollup-plugin-filesize';
-import { terser as terserPlugin } from 'rollup-plugin-terser';
 
+import typescript from 'typescript';
 import pkg from './package.json';
 
 const outputDir = 'dist';
@@ -10,6 +10,7 @@ const globals = {
     fs: 'fs'
 };
 
+/* eslint-disable import/no-default-export */
 export default {
     input: 'src/index.ts',
     output: [
@@ -37,11 +38,11 @@ export default {
             watch: true
         }),
         typescriptPlugin({
-            typescript: require('typescript')
+            typescript
         }),
-        terserPlugin(),
         filesizePlugin({
             showBrotliSize: true
         })
     ]
 };
+/* eslint-enable import/no-default-export */
