@@ -42,6 +42,7 @@ module.exports = {
             { functions: false, classes: true, variables: true, typedefs: true }
         ],
         // Common abbreviations are known and readable
+        'unicorn/no-useless-undefined': 'off',
         'unicorn/prevent-abbreviations': 'off',
         'unicorn/filename-case': [
             'error',
