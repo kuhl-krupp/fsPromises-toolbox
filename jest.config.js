@@ -10,5 +10,6 @@ module.exports = {
     collectCoverage: true,
     verbose: true,
     testEnvironment: 'node',
-    testPathIgnorePatterns: ['/dist/', '/test/', '/node_modules/']
+    testPathIgnorePatterns: ['/dist/', '/test/', '/node_modules/'],
+    setupFilesAfterEnv: ['<rootDir>/setupTestdata.ts']
 };
