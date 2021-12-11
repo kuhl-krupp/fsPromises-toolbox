@@ -1,4 +1,4 @@
-import { promises as pfs, Stats } from 'fs';
+import { promises as pfs, Stats } from 'node:fs';
 
 /**
  * Get File Stats without promise rejections.
@@ -9,9 +9,9 @@ import { promises as pfs, Stats } from 'fs';
  * @returns {(Promise<Stats | undefined>)}
  */
 export async function fileStats(filePath: string): Promise<Stats | undefined> {
-    try {
-        return await pfs.stat(filePath);
-    } catch {
-        return undefined;
-    }
+  try {
+    return await pfs.stat(filePath);
+  } catch {
+    return undefined;
+  }
 }

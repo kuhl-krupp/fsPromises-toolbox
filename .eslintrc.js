@@ -7,21 +7,37 @@ module.exports = {
     },
     parser: '@typescript-eslint/parser',
     parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: 'latest',
         project: './tsconfig.json',
-        createDefaultProgram: true,
         sourceType: 'module'
     },
-    plugins: ['@typescript-eslint', 'eslint-comments', 'jest', 'promise', 'unicorn'],
+    settings: {
+        'import/resolver': {
+            typescript: {},
+        },
+    },
+    plugins: [
+        'editorconfig',
+        'promise',
+        'import',
+        'eslint-comments',
+        'jest',
+        'eslint-plugin-jest',
+        'simple-import-sort',
+        'eslint-plugin-unicorn',
+        '@typescript-eslint'
+    ],
     extends: [
+        'plugin:editorconfig/all',
+        'plugin:import/recommended',
+        'plugin:import/typescript',
+        'airbnb-base',
         'airbnb-typescript/base',
         'plugin:@typescript-eslint/recommended',
-        'plugin:eslint-comments/recommended',
-        'plugin:jest/recommended',
+        // 'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:promise/recommended',
-        'plugin:unicorn/recommended',
-        'prettier',
-        'prettier/@typescript-eslint'
+        'plugin:eslint-comments/recommended',
+        'plugin:unicorn/recommended'
     ],
     rules: {
         'no-restricted-syntax': 'off',
