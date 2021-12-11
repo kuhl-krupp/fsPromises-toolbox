@@ -1,4 +1,4 @@
-import fs, { promises as pfs } from 'node:fs';
+import fs, { promises as pfs } from 'fs';
 
 export async function exists(filePath: string): Promise<boolean> {
   try {

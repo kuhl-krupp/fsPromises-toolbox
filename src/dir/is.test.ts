@@ -1,4 +1,4 @@
-import path from 'node:path';
+import path from 'path';
 import { isDir } from './is';
 
 const TEST_DIR = process.env.TEST_DIR_PATH ?? '';

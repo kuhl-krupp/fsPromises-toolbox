@@ -68,6 +68,8 @@ module.exports = {
                     pascalCase: true
                 }
             }
-        ]
+        ],
+
+        'unicorn/prefer-node-protocol': 'off'
     }
 };

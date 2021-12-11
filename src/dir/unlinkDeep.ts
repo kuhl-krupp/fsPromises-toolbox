@@ -1,5 +1,5 @@
-import { promises as pfs } from 'node:fs';
-import path from 'node:path';
+import { promises as pfs } from 'fs';
+import path from 'path';
 import { readDeep } from './readDeep';
 import { isDir } from './is';
 

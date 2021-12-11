@@ -1,4 +1,4 @@
-import { promises as pfs } from 'node:fs';
+import { promises as pfs } from 'fs';
 import { exists } from '@/_helpers/exists';
 
 /**

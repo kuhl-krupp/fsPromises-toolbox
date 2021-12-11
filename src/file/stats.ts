@@ -1,4 +1,4 @@
-import { promises as pfs, Stats } from 'node:fs';
+import { promises as pfs, Stats } from 'fs';
 
 /**
  * Get File Stats without promise rejections.

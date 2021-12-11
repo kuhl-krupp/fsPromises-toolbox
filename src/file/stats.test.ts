@@ -1,5 +1,5 @@
-import path from 'node:path';
-import { Stats } from 'node:fs';
+import path from 'path';
+import { Stats } from 'fs';
 import { fileStats } from './stats';
 
 const TEST_DIR = process.env.TEST_DIR_PATH ?? '';
