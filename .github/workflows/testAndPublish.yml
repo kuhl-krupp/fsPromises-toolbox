@@ -19,7 +19,7 @@ env:
   node: "16"
 
 jobs:
-  integrate:
+  testAndPublish:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
 
@@ -62,16 +62,9 @@ jobs:
 
       - name: NPM Publish
         uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
 
       - if: steps.publish.outputs.type != 'none'
         run: |
           echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
-
-      # - name: Create Artifact
-      #   uses: actions/upload-artifact@v2
-      #   if: success()
-      #   with:
-      #     # Artifact name
-      #     name: release
-      #     # A file, directory or wildcard pattern that describes what to upload
-      #     path: dist/
