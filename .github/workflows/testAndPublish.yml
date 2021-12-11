@@ -13,7 +13,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: styfle/cancel-workflow-action@master
+      - uses: styfle/cancel-workflow-action@0.9.1
         with:
           all_but_latest: true
           access_token: ${{ secrets.GITHUB_TOKEN }}
