@@ -11,5 +11,8 @@ module.exports = {
     verbose: true,
     testEnvironment: 'node',
     testPathIgnorePatterns: ['/dist/', '/test/', '/node_modules/'],
-    setupFilesAfterEnv: ['<rootDir>/setupTestdata.ts']
+    setupFilesAfterEnv: ['<rootDir>/setupTestdata.ts'],
+    moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/src/$1'
+    }
 };

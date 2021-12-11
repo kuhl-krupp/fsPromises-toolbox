@@ -11,7 +11,6 @@ const globals = {
     path: 'path'
 };
 
-/* eslint-disable import/no-default-export */
 export default {
     input: 'src/index.ts',
     output: [

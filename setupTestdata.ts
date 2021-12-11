@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import extract from 'extract-zip';
 import path from 'path';
 
