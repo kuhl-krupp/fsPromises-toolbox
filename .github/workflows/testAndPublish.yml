@@ -34,7 +34,7 @@ jobs:
       - if: steps.cache.outputs.cache-hit != 'true'
         run: |
           yarn config set ignore-engines true
-          yarn --frozen-lockfile
+          yarn --frozen-lockfile --ignore-scripts
 
       - name: Linting
         run: yarn lint
