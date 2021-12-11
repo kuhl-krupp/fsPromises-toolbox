@@ -1,10 +1,18 @@
 {
     "name": "fspromises-toolbox",
-    "description": "",
-    "author": "Tjark Kühl",
-    "license": "MIT",
     "version": "0.3.1",
-    "keywords": [],
+    "description": "Accelerate your filesystem code with promisified helper functions",
+    "license": "MIT",
+    "homepage": "https://github.com/kuhl-krupp/fsPromises-toolbox",
+    "repository": "github:kuhl-krupp/fsPromises-toolbox",
+    "bugs": "https://github.com/kuhl-krupp/fsPromises-toolbox/issues",
+    "author": "Tjark Kühl",
+    "keywords": [
+        "fs",
+        "promises",
+        "filesystem",
+        "tooling"
+    ],
     "engines": {
         "node": ">=16"
     },
