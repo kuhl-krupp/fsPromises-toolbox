@@ -2,7 +2,9 @@
 /dist
 /examples
 /node_modules
-babel.config.js
-.eslintrc.js
-jest.config.js
 /todo
+setupTestdata.ts
+rollup.config.js
+jest.config.js
+.eslintrc.js
+babel.config.js
