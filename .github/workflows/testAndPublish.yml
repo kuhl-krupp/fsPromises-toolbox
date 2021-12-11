@@ -6,11 +6,7 @@ env:
 jobs:
   testAndPublish:
     if: github.event.pull_request.draft == false
-    strategy:
-      matrix:
-        node-version: [16]
-        os: [ubuntu-latest, macOS-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - uses: styfle/cancel-workflow-action@0.9.1

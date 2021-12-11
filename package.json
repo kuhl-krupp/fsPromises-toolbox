@@ -28,8 +28,8 @@
         "build": "rollup -c",
         "watch": "rollup -cw",
         "prepublish": "yarn build",
-        "lint": "eslint --cache ./src/**/*.ts{,x}",
-        "fix": "eslint --cache ./src/**/*.ts{,x} --fix",
+        "lint": "eslint --cache ./src/**/*.ts",
+        "fix": "eslint --cache ./src/**/*.ts --fix",
         "update": "yarn upgrade-interactive --latest",
         "prepare": "husky install"
     },
