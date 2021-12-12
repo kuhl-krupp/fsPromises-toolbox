@@ -1,6 +1,6 @@
 {
     "name": "fspromises-toolbox",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Accelerate your filesystem code with promisified helper functions",
     "license": "MIT",
     "homepage": "https://github.com/kuhl-krupp/fsPromises-toolbox",

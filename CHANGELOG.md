@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/kuhl-krupp/fsPromises-toolbox/compare/v1.0.2...v1.0.3) (2021-12-12)
+
+
+### Bug Fixes
+
+* **readme:** change readme title ([8c26d11](https://github.com/kuhl-krupp/fsPromises-toolbox/commit/8c26d1143ec1ff9890b0bc591d9003197cbdc028))
+
 ## [1.0.2](https://github.com/kuhl-krupp/fsPromises-toolbox/compare/v1.0.1...v1.0.2) (2021-12-12)
 
 
