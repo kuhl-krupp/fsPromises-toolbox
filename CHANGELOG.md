@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/kuhl-krupp/fsPromises-toolbox/compare/v1.0.1...v1.0.2) (2021-12-12)
+
+
+### Bug Fixes
+
+* **gitattributes:** add newline ([338f135](https://github.com/kuhl-krupp/fsPromises-toolbox/commit/338f1352b8c6d79de2340bd163936e124ffacfc8))
+
 ## [1.0.1](https://github.com/kuhl-krupp/fsPromises-toolbox/compare/v1.0.0...v1.0.1) (2021-12-12)
 
 
