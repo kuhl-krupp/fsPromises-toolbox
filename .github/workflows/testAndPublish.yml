@@ -25,8 +25,6 @@ jobs:
           all_but_latest: true
           access_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: git config --global core.autocrlf false
-
       - uses: actions/checkout@master
 
       - uses: actions/setup-node@master
@@ -69,8 +67,6 @@ jobs:
         with:
           all_but_latest: true
           access_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - run: git config --global core.autocrlf false
 
       - uses: actions/checkout@master
 
