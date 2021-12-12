@@ -14,6 +14,7 @@ describe('unlinkDeep', () => {
       expect(checkDir).toBe(false);
     });
   });
+
   describe('Check if it unlinks a normal folder structure with files and returns true', () => {
     it('Should return', async () => {
       const dir = path.join(TEST_DIR, 'lorem', 'ipsum');
@@ -24,16 +25,18 @@ describe('unlinkDeep', () => {
       expect(checkDir).toBe(false);
     });
   });
-  describe('Check if it returns undefined on an valid file path', () => {
-    it('Should return undefined', async () => {
+
+  describe('Check if it returns false on an file path', () => {
+    it('Should return false', async () => {
       const res = await unlinkDeep(path.join(TEST_DIR, 'test3.txt'));
-      expect(typeof res).toBe('undefined');
+      expect(res).toBe(false);
     });
   });
-  describe('Check if it returns undefined on an invalid path', () => {
-    it('Should return undefined', async () => {
+
+  describe('Check if it returns false on an invalid path', () => {
+    it('Should return false', async () => {
       const res = await unlinkDeep(path.join(TEST_DIR, 'doesntExist'));
-      expect(typeof res).toBe('undefined');
+      expect(res).toBe(false);
     });
   });
 });

@@ -5,6 +5,7 @@ export async function exists(filePath: string): Promise<boolean> {
     await pfs.access(filePath, fs.constants.F_OK);
     return true;
   } catch {
-    return false;
+    // Empty
   }
+  return false;
 }

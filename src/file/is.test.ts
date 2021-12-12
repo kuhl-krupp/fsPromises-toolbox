@@ -27,7 +27,7 @@ describe('isFile', () => {
 
   describe('Check if not existing path returns false', () => {
     it('Should return false', async () => {
-      const res = await isFile(path.join(TEST_DIR, Math.random().toString()));
+      const res = await isFile(path.join(TEST_DIR, 'doesntExist'));
       expect(res).toBe(false);
     });
   });
