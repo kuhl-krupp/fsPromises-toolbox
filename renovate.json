@@ -1,5 +1,21 @@
 {
   "extends": [
     "config:base"
+  ],
+  "assigneesFromCodeOwners": true,
+  "rangeStrategy": "pin",
+  "baseBranches": [
+    "dependency-updates"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "automerge": true
+    }
   ]
 }
