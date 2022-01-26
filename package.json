@@ -14,7 +14,7 @@
         "tooling"
     ],
     "engines": {
-        "node": ">=16"
+        "node": "17.4.0"
     },
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
