@@ -34,11 +34,11 @@
         "prepare": "husky install"
     },
     "devDependencies": {
-        "@babel/cli": "7.16.0",
-        "@babel/core": "7.16.0",
-        "@babel/node": "7.16.0",
-        "@babel/preset-env": "7.16.4",
-        "@babel/preset-typescript": "7.16.0",
+        "@babel/cli": "7.16.8",
+        "@babel/core": "7.16.12",
+        "@babel/node": "7.16.8",
+        "@babel/preset-env": "7.16.11",
+        "@babel/preset-typescript": "7.16.7",
         "@commitlint/cli": "15.0.0",
         "@commitlint/config-conventional": "15.0.0",
         "@semantic-release/changelog": "6.0.1",
